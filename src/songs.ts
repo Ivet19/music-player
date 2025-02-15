@@ -42,8 +42,7 @@ export const removeSongByPosition = (songs: Song[], position: number): void => {
 };
 
 export const setCurrentSong = (song: Song): void => {
-  this === song;
-  return this;
+  song.isCurrent = true;
 };
 
 export const getNextSongPosition = (
@@ -51,21 +50,15 @@ export const getNextSongPosition = (
   currentSongPosition: number
 ) => {
   let nextSongPosition: number;
-  // En currentSongPosition tienes el índice de la canción que se está reproduciendo
-  // En songs tienes el array de canciones
-  // Asígnale a la variable nextSongPosition el índice de la siguiente canción que se tiene que reproducir
-  // Si la canción actual es la última, la siguiente será la primera
-  nextSongPosition = 0; // Sustituye este 0 por una expresión
+
+  if (currentSongPosition == songs.length - 1) {
+    nextSongPosition = 0;
+  } else nextSongPosition = currentSongPosition + 1;
 
   return nextSongPosition;
 };
 
 export const isCurrentSong = (song: Song): boolean => {
-  let isCurrent: boolean;
-  // Asígnale a la variable isCurrent un true o un false dependiendo de si
-  // la canción recibida es la actual
-
-  isCurrent = false; // Cambia esta línea por tu código
-
+  const isCurrent = song.isCurrent;
   return isCurrent;
 };
