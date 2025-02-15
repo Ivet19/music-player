@@ -11,7 +11,8 @@ export const addSong = (song: Song, songs: Song[]): void => {
 };
 
 export const isPlaylistFull = (songs: Song[]): boolean => {
-  const isFull = songs.length >= 4;
+  const maximumNumberOfSongs = 4;
+  const isFull = songs.length >= maximumNumberOfSongs;
 
   return isFull;
 };
@@ -50,9 +51,9 @@ export const getNextSongPosition = (
   currentSongPosition: number
 ) => {
   let nextSongPosition: number;
-
+  const arrayFirstPosition = 0;
   if (currentSongPosition == songs.length - 1) {
-    nextSongPosition = 0;
+    nextSongPosition = arrayFirstPosition;
   } else nextSongPosition = currentSongPosition + 1;
 
   return nextSongPosition;
